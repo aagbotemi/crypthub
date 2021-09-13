@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CryptoTable from '../components/CryptoTable';
 import Loader from '../components/Loader';
+import DateTime from '../components/DateTime';
 
 const proxy = "https://mighty-island-53594.herokuapp.com";
 
@@ -49,6 +50,7 @@ const Home = () => {
     return (
         <section className="home">
             <article className="data-table">
+                <DateTime />
                 <table>
                     <thead>
                         <tr>
