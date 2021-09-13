@@ -129,7 +129,6 @@ HOME HOME HOME HOME
         }
     }
 }
-
 /*
 ====================
 LOADER LOADER LOADER
@@ -159,4 +158,16 @@ LOADER LOADER LOADER
         -webkit-transform: rotate(360deg);
         }
     }
+}
+/*
+====================
+FOOTER FOOTER FOOTER
+====================
+*/
+footer {
+    text-align: center;
+    background: #6c7ae0;
+    color: #efe;
+    padding: 1.2rem 1rem;
+    width: 100%;
 }
