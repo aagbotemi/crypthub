@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CryptoTable from '../components/CryptoTable';
+import Loader from '../components/Loader';
 
 const proxy = "https://mighty-island-53594.herokuapp.com";
 
@@ -39,6 +40,11 @@ const Home = () => {
         return () => clearInterval(interval)
     }, [API_KEY])
 
+    if (loading) {
+        return (
+            <Loader />
+        )
+    }
 
     return (
         <section className="home">
