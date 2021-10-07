@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+@import './navbar.scss';
+
 *,
 ::after,
 ::before {
@@ -16,41 +18,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #222;
 }
-/*
-=====================
-NAVBAR NAVBAR NAVBAR
-=====================
-*/
-.navbar {
-    height: 4rem;
-    background: #fff;
-    padding: .8rem 1.7rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    box-shadow: 0px 2px 3px rgba(0,0,0,0.34);
-
-    span {
-        font-size: 30px;
-        font-weight: 900;
-        margin-left: .5rem;
-    }
-
-    .scrolled {
-        background-color: rgba(225, 225, 225, 0);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        -moz-backdrop-filter: blur(15px);
-        transition: all .5s ease-in-out;
-
-        &::backdrop {
-            filter: blur(15px);
-        }
-    }
+a {
+    text-decoration: none;
 }
+/*
+
 /*
 ===================
 HOME HOME HOME HOME

@@ -2,15 +2,17 @@ import React from 'react'
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './views/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
   
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Home />
-      <Footer />
-    </div>
+      {/* <Home />
+      <Footer /> */}
+      
+    </Router>
   );
 }
 

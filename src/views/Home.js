@@ -17,8 +17,7 @@ const Home = () => {
     
     useEffect(() => {
         const getCryptoData = async () => {
-        // const qs = `?start=1&limit=20&convert=USD`
-            const qs = `?start=1&limit=20&convert=USD`
+            const qs = `?start=1&limit=200&convert=USD`
             try {
                 setLoading(true)
                 const response = await axios.get(`${proxy}/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest` + qs, {
@@ -45,7 +44,7 @@ const Home = () => {
         return (
             <Loader />
         )
-    }
+    } 
 
     return (
         <section className="home">
