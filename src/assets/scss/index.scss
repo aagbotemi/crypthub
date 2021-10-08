@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 @import './navbar.scss';
+@import './home.scss';
 
 *,
 ::after,
@@ -28,7 +29,7 @@ a {
 HOME HOME HOME HOME
 ===================
 */
-.home {
+.homer {
     margin: 0 1rem;
 
     .data-table {

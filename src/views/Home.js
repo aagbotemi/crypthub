@@ -1,74 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import CryptoTable from '../components/CryptoTable';
-import Loader from '../components/Loader';
-import DateTime from '../components/DateTime';
-
-const proxy = "https://mighty-island-53594.herokuapp.com";
-
-require('dotenv').config()
+import HeroImg from "./../assets/images/hero-image.png"
 
 const Home = () => {
 
-    const [cryptocurrency, setCryptocurrency] = useState([])
-    const [loading, setLoading] = useState(false)
-    
-    const API_KEY = process.env.REACT_APP_CMC;
-    
-    useEffect(() => {
-        const getCryptoData = async () => {
-            const qs = `?start=1&limit=200&convert=USD`
-            try {
-                setLoading(true)
-                const response = await axios.get(`${proxy}/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest` + qs, {
-                    headers: { 'X-CMC_PRO_API_KEY': API_KEY }
-                });
-                setCryptocurrency(response.data.data)
-                console.log(response.data.data)
-                setLoading(false)
-            } catch (error) {
-                console.log(error);
-                setLoading(false)
-            }
-        }
-        // running the api call on first render/refresh
-        getCryptoData()
-        // running the api call every one minute
-        const interval = setInterval(() => {
-            getCryptoData()
-        }, 60000)
-        return () => clearInterval(interval)
-    }, [API_KEY])
-
-    if (loading) {
-        return (
-            <Loader />
-        )
-    } 
 
     return (
         <section className="home">
-            <article className="data-table">
-                <DateTime />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Position</th>
-                            <th>Name</th>
-                            <th>Price in USD</th>
-                            <th>Price in Naira</th>
-                            <th>Market Capitalization</th>
-                            <th>Volume</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cryptocurrency.map((crypto) => {
-                        return (
-                            <CryptoTable key={crypto.id} crypto={crypto} />
-                        )
-                        })}
-                    </tbody>
-                </table>
+            <article className="hero">
+                <div className="leftHandSide">
+                    <h1>Join the best cryptocurrency platform</h1>
+                    <p>The global crypto market cap is <span className="bold">$2.28T</span>, a <span className="green bold">2.38%</span> increase over the last day.</p>
+                    <p>The total crypto market volume over the last 24 hours is <span className="bold">$141.65B</span>, which makes a <span className="green bold">28.15%</span> increase. The total volume in DeFi is currently <span className="bold">$18.42B</span>, <span className="bold">13.00%</span> of the total crypto market 24-hour volume. The volume of all stable coins is now <span className="bold">$109.59B</span>, which is <span className="bold">77.36%</span> of the total crypto market 24-hour volume.</p>
+                </div>
+                <div className="rightHandSide">
+                    <img src={HeroImg} alt="hero" />
+                </div>
+
             </article>
         </section>
     )

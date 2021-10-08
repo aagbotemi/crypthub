@@ -5,12 +5,11 @@ import Home from './views/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
-  
   return (
     <Router>
       <Navbar />
-      {/* <Home />
-      <Footer /> */}
+      <Home />
+      {/* <Footer /> */}
       
     </Router>
   );
