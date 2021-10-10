@@ -25,7 +25,32 @@ const Home = () => {
                 <div className="rightHandSide">
                     <img src={HeroImg} alt="hero" />
                 </div>
-
+            </article>
+        
+            <article className="globalStats">
+                <h1>Global Stats</h1>
+                <div className="globalStatsGrid">
+                    <div className="grid-item">
+                        <span className="stat-title">Total Cryptocurrencies</span>
+                        <div className="stat-content">{Number(globalStats?.total).toLocaleString("en-US")}</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Exchanges</span>
+                        <div className="stat-content">{globalStats?.totalExchanges}</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Market Cap</span>
+                        <div className="stat-content">{numFormatter(globalStats?.totalMarketCap)}</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total 24h Volume</span>
+                        <div className="stat-content">{numFormatter(globalStats?.total24hVolume)}</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Markets</span>
+                        <div className="stat-content">{numFormatter(globalStats?.totalMarkets)}</div>
+                    </div>
+                </div>
             </article>
         </section>
     )
