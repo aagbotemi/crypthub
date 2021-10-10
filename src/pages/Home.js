@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import HeroImg from "./../assets/images/hero-image.png"
 
-
 const Home = () => {
+    
 
     return (
         <section className="home">
@@ -14,6 +14,32 @@ const Home = () => {
                 </div>
                 <div className="rightHandSide">
                     <img src={HeroImg} alt="hero" />
+                </div>
+            </article>
+        
+            <article className="globalStats">
+                <h1>Global Stats</h1>
+                <div className="globalStatsGrid">
+                    <div className="grid-item">
+                        <span className="stat-title">Total Cryptocurrencies</span>
+                        <div className="stat-content">788</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Exchanges</span>
+                        <div className="stat-content">798</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Market Cap</span>
+                        <div className="stat-content">6767</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total 24h Volume</span>
+                        <div className="stat-content">789</div>
+                    </div>
+                    <div className="grid-item">
+                        <span className="stat-title">Total Markets</span>
+                        <div className="stat-content">898</div>
+                    </div>
                 </div>
             </article>
         </section>
