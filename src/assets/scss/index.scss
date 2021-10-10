@@ -1,1 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import './navbar.scss';
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+}
+a {
+    text-decoration: none;
+}

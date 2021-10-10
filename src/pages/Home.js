@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import HeroImg from "./../assets/images/hero-image.png"
-import { useGetCryptosQuery } from '../services/cryptoApi'
-import {numFormatter} from '../utils/numFormatter'
+
 
 const Home = () => {
-    const { data, isFetching } = useGetCryptosQuery(10)
-    const globalStats = data?.data?.stats
-    const currency = data?.data?.base.sign
-    // const { total24hVolume, totalMarketCap } = globalStats
-
-    // const percentage = (total24hVolume / totalMarketCap) * 100;
-
-    /// console.log(percentage);
-    console.log(data);
 
     return (
         <section className="home">
