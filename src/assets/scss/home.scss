@@ -10,7 +10,7 @@
 }
 
 .home {
-  margin: 6rem .5rem 0rem .5rem;
+  margin: 6rem .8rem 0rem;
   
   .hero {
     display: -ms-grid;
@@ -55,7 +55,7 @@
   }
   
   .globalStats {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 
     h1 {
       margin-bottom: 0.4rem;
@@ -95,7 +95,11 @@
   
 }
 
-
+.crypto-table {
+  margin-top: 6rem;
+  padding: 0rem .8rem;
+  
+}
 // @media screen and (min-width: 767px) {
 //   .home {
 //     margin: 6rem 2rem 0rem 2rem;
@@ -115,6 +119,10 @@
 // }
 
 @media screen and (min-width: 767px) {
+  .crypto-table {
+    margin-top: 6rem;
+    padding: 0rem 2rem;
+  }
   .home {
     margin: 6rem 2rem 0rem 2rem;
 
@@ -153,6 +161,10 @@
 
 
 @media screen and (min-width: 1200px) {
+  .crypto-table {
+    margin-top: 6rem;
+    padding: 0rem 3rem;
+  }
   .home {
     margin: 6rem 3rem 0rem 4rem;
 
