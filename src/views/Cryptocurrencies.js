@@ -38,11 +38,11 @@ const rows = [
 
 export default function DataTable() {
     return (
-        <div className="crypto-table" style={{ height: 400, width: '100%' }}>
+        <div className="crypto-table" style={{ height: '100%', width: '100%' }}>
             <DataGrid
                 rows={rows}
                 columns={columns}
-                pageSize={5}
+                pageSize={7}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
             />
