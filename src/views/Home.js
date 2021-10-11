@@ -7,11 +7,7 @@ const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
     const currency = data?.data?.base.sign
-    // const { total24hVolume, totalMarketCap } = globalStats
-
-    // const percentage = (total24hVolume / totalMarketCap) * 100;
-
-    /// console.log(percentage);
+    
     console.log(data?.data);
 
     return (
@@ -39,11 +35,11 @@ const Home = () => {
                     </div>
                     <div className="grid-item">
                         <span className="stat-title">Total Market Cap</span>
-                        <div className="stat-content">{numFormatter(globalStats?.totalMarketCap)}</div>
+                        <div className="stat-content">{currency}{numFormatter(globalStats?.totalMarketCap)}</div>
                     </div>
                     <div className="grid-item">
                         <span className="stat-title">Total 24h Volume</span>
-                        <div className="stat-content">{numFormatter(globalStats?.total24hVolume)}</div>
+                        <div className="stat-content">{currency}{numFormatter(globalStats?.total24hVolume)}</div>
                     </div>
                     <div className="grid-item">
                         <span className="stat-title">Total Markets</span>
