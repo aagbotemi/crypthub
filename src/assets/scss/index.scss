@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @import './navbar.scss';
 @import './home.scss';
@@ -16,131 +16,9 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #222;
 }
 a {
     text-decoration: none;
-}
-/*
-
-/*
-===================
-HOME HOME HOME HOME
-===================
-*/
-.homer {
-    margin: 0 1rem;
-
-    .data-table {
-        overflow-x: scroll;
-        max-width: 950px;
-        width: 100%;
-        margin: 5rem auto 3rem;
-
-        .date-time {
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: .5rem;
-        margin-bottom: .8rem;
-        }
-            
-
-        table {
-        border-collapse: collapse;
-        width: 100%;
-        box-shadow: 0px 20px 30px rgba(0,0,0,0.34);
-
-        thead {
-            border-radius: 10px !important;
-        }
-
-        tr {
-            &:nth-child(even) {
-            background-color: rgb(248, 246, 255);
-            }
-            &:hover {
-            background-color: #ddd;
-            }
-        }
-
-        td, th {
-            text-align: left;
-            padding: 8px;
-            white-space: nowrap;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        th {
-            font-size: 18px;
-            color: #fff;
-            line-height: 1.4;
-            background-color: #6c7ae0;
-            padding: 18px 20px;
-            
-            &:first-child {
-            border-top-left-radius: 10px;
-            }
-            &:last-child {
-            border-top-right-radius: 10px;
-            }
-        }
-
-        td {
-            padding: 15px 18px;
-
-            .symbol {
-                background-color: rgb(60, 190, 250);
-                color: #222;
-                border-radius: 30px;
-                padding: 5px;
-                font-size: 11px;
-                margin-left: .2rem;
-            }
-        }
-        }
-    }
-}
-/*
-====================
-LOADER LOADER LOADER
-====================
-*/
-.loader {
-    background: #d1d2d3;
-    margin: 0px;
-    padding: 0px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .spinner {
-        display: block;
-        width: 50px;
-        height: 50px;
-        border: 7px solid #aaa;
-        border-radius: 50%;
-        border-top-color: #222;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        to {
-        -webkit-transform: rotate(360deg);
-        }
-    }
-}
-/*
-====================
-FOOTER FOOTER FOOTER
-====================
-*/
-footer {
-    text-align: center;
-    background: #6c7ae0;
-    color: #efe;
-    padding: 1.2rem 1rem;
-    width: 100%;
 }
