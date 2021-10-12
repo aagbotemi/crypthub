@@ -51,8 +51,8 @@ const Navbar = () => {
       <ul className={active ? "nav-menu active" : "nav-menu"}>
         {menuItems.map((item, index) => {
           return (
-            <Link to={item.url}  className="nav-links">
-              <li key={index}>
+            <Link key={index} to={item.url} className="nav-links">
+              <li>
                 <span className="nav-icon">
                   {item.icon}
                 </span>
