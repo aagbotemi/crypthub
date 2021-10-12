@@ -3,6 +3,7 @@ import { useGetCryptoDetailQuery, useGetCryptoHistoryQuery } from '../services/c
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
+import LineChart from './LineChart';
 
 const CryptoDetail = () => {
     const { coinId } = useParams();
@@ -33,7 +34,12 @@ const CryptoDetail = () => {
             >
                 {time.map((date) => <option key={date}>{date}</option>)}
             </select>
-            
+            {/* Line Chart */}
+            <LineChart
+                coinHistory={coinHistory}
+                currentPrice={millify(cryptoDetails.price)}
+                coinName={cryptoDetails.name}
+            />
         </div>
     )
 }
