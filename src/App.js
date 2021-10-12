@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './views/Home';
 import Cryptocurrencies from './views/Cryptocurrencies';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import CryptoDetail from './views/CryptoDetail';
 
 function App() {
   return (
@@ -12,9 +13,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/cryptocurrencies" component={Cryptocurrencies} />
+        <Route path="/crypto/:id" component={CryptoDetail} />
       </Switch>
-      {/* <Home />
-      <Cryptocurrencies /> */}
     </Router>
   );
 }
