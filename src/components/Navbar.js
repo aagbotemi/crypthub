@@ -35,7 +35,7 @@ const menuItems = [
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
-      setActive(!active);
+    setActive(!active);
   };
     
   return (
@@ -51,7 +51,7 @@ const Navbar = () => {
       <ul className={active ? "nav-menu active" : "nav-menu"}>
         {menuItems.map((item, index) => {
           return (
-            <Link key={index} to={item.url} className="nav-links">
+            <Link key={index} to={item.url} className="nav-links" onClick={() => setActive(!active)}>
               <li>
                 <span className="nav-icon">
                   {item.icon}
