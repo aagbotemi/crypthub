@@ -54,7 +54,7 @@ const Home = () => {
                 <div className="home-title">Top 10 Cryptocurrencies in the world</div>
                 <div className="show-more"><Link to="/cryptocurrencies">Show More</Link></div>
             </div>
-            <Cryptocurrencies ten />
+            <Cryptocurrencies topTen />
         </section>
     )
 }
