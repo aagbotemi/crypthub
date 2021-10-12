@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import HeroImg from "./../assets/images/hero-image.png"
 import { useGetCryptosQuery } from '../services/cryptoApi'
-import {numFormatter} from '../utils/numFormatter'
+import { numFormatter } from '../utils/numFormatter'
+import Cryptocurrencies from './Cryptocurrencies'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
@@ -47,6 +49,12 @@ const Home = () => {
                     </div>
                 </div>
             </article>
+
+            <div className="home-heading-container">
+                <div className="home-title">Top 10 Cryptocurrencies in the world</div>
+                <div className="show-more"><Link to="/cryptocurrencies">Show More</Link></div>
+            </div>
+            <Cryptocurrencies ten />
         </section>
     )
 }

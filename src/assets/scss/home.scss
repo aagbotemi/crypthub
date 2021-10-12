@@ -93,13 +93,51 @@
     }
   }
   
+  .home-heading-container {
+    margin-top: 6rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .home-title {
+      word-wrap: break-word;
+      font-size: 1.3rem;
+    }
+    
+    .show-more a {
+      font-size: 1.4rem;
+      color: #24A4F0;
+      font-weight: 500;
+      
+      &:hover {
+        color: #1d89c4;
+      }
+
+    }
+    
+  }
+  .crypto-table {
+    margin-top: 0.5rem;
+    padding: 0rem;
+    
+  }
+  
 }
+
+// #5371E8
 
 .crypto-table {
   margin-top: 6rem;
   padding: 0rem .8rem;
   
 }
+.mt-6 {
+    margin-top: 6rem;
+
+  }
+
+
 // @media screen and (min-width: 767px) {
 //   .home {
 //     margin: 6rem 2rem 0rem 2rem;
