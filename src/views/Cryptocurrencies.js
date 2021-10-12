@@ -5,11 +5,11 @@ import millify from "millify";
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 
 
-export default function DataTable({ ten }) {
+export default function DataTable({ topTen }) {
 
 
 
-  const count = ten ? 10 : 100
+  const count = topTen ? 10 : 100
   // const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
 
   // const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
@@ -21,72 +21,60 @@ export default function DataTable({ ten }) {
   if (isFetching) return "Loading...";
 
   return (
-    // <ul className="flex flex-col crypto-table">
-    //   <li>
-    //     Hello
-    //   </li>
-    //   {cryptos.map((currency) => {
-    //     return (
-    //       <li>
-    //         <span>{currency.name}</span>
-    //       </li>
-    //     )
-    //   })}
-    // </ul>
-    <div className="flex flex-col crypto-table">
-      <div className="mb-3 overflow-x-auto rounded-xl shadow-md">
-        <div className="pt-2 align-middle inline-block min-w-full">
-          <div className="overflow-hidden border-gray-200 rounded-xl">
-            <table className="w-full divide-y divide-gray-200 relative">
-              <thead className="bg-gray-50">
+    <div className="crypto-table">
+      <div className="crypto-table-inner-1">
+        <div className="crypto-table-inner-2">
+          <div className="crypto-table-inner-3">
+            <table>
+              <thead>
                 <tr>
-                  <th scope="col" className="px-1 md:px-3 py-5 text-left text-xs font-medium text-center text-gray-500 uppercase tracking-wider">
+                  <th scope="col">
                     S/N
                   </th>
-                  <th scope="col" className="px-2 md:px-4 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th scope="col">
                     Name
                   </th>
-                  <th scope="col" className="md:px-3 px-1 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    amount
+                  <th scope="col">
+                    price
                   </th>
-                  <th scope="col" className="md:px-3 px-1 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    ref no.
+                  <th scope="col">
+                    24h%
                   </th>
-                  <th scope="col" className="md:px-3 px-1 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    status
+                  <th scope="col">
+                    market cap
                   </th>
-                  <th scope="col" className="md:px-3 px-1 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
-                    date &amp; time
+                  <th scope="col">
+                    volume(24h)
                   </th>
-                  <th scope="col" className="md:px-3 px-1 py-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    action
+                  <th scope="col">
+                    circulating supply
                   </th>
                 </tr>
               </thead>
 
-              <tbody className="bg-white divide-y divide-gray-300">
-                {/* {Array.isArray(cryptos) && cryptos.length === 0 
+              <tbody>
+                {cryptosList?.data?.coins.length === 0 || cryptosList?.data?.coins === undefined 
                 ? <tr>
-                  <td colSpan="7" className="text-center py-4 text-gray-600">No cryptocurrcency found</td>
+                  <td colSpan="7" className="not-found">No cryptocurrency found</td>
                 </tr>
-                : cryptos.map((currency, index) => {  */}
-              {cryptosList?.data?.coins.map((currency, index) => { 
+              : cryptosList?.data?.coins.map((currency, index) => { 
                   return (
                     <tr  className="">
-                        <td className="font-medium whitespace-nowrap text-center px-1 md:px-3 py-3">{index + 1}</td>
-                        <td className="font-medium whitespace-nowrap truncate md:px-4 px-2 py-3">
-                      <Link to={`crypto/${currency?.id}`}>
-                          {currency?.name}
-                          <img className="crypto-image" src={currency?.iconUrl} alt={currency?.name} width="18px" />
-                      </Link>
+                        <td>{index + 1}</td>
+                        <td>
+                          <Link to={`crypto/${currency?.id}`}>
+                            <img className="crypto-image" src={currency?.iconUrl} alt={currency?.name} width="18px" />
+                            <span className="coin-name">{currency?.name}</span>
+                            <span className="coin-symbol">{currency?.symbol}</span>
+                          </Link>
                         </td>
-                        <td className="text-sm truncate whitespace-nowrap md:px-3 px-1 py-3">&#36;{millify(currency?.price)}</td>
-                        <td className="text-sm truncate whitespace-nowrap md:px-3 px-1 py-3">&#36;{currency?.circulatingSupply}</td>
-                        <td className="text-sm truncate whitespace-nowrap md:px-3 px-1 py-3">&#36;{millify(currency?.volume)}</td>
-                        <td className="text-sm truncate whitespace-nowrap md:px-3 px-1 py-3">&#36;{millify(currency?.marketCap)}</td>
+                        <td>&#36;{currency?.price}</td>
                         <td className={currency?.change < 0 ? "red" : "green"}>
-                          {currency.change < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}{Math.abs(currency?.change)}
+                          {currency.change < 0 ? <AiFillCaretDown size="12px" /> : <AiFillCaretUp size="12px" />}{Math.abs(currency?.change)}
                         </td>
+                        <td>&#36;{currency?.marketCap}</td>
+                        <td>&#36;{currency?.volume}</td>
+                        <td>&#36;{currency?.circulatingSupply}</td>
                     </tr>
                   )
                 })}

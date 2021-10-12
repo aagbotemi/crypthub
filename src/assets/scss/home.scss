@@ -130,36 +130,126 @@
 .crypto-table {
   margin-top: 6rem;
   padding: 0rem .8rem;
+
+  display: flex;
+  flex-direction: column;
+  
+  .crypto-table-inner-1 {
+    // background-color: red;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: .75rem;
+
+    .crypto-table-inner-2 {
+      // padding-top: .5rem;
+      vertical-align: middle;
+      display: inline-block;
+      min-width: 100%;
+
+      .crypto-table-inner-3 {
+        overflow: hidden;
+        border: 1px solid rgba(229, 231, 235, 1);
+        border-radius: 0.75rem;
+
+        table {
+          // position: relative;
+          width: 100%;
+          --tw-divide-y-reverse: 0;
+          border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+          border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+          border-color: rgba(229, 231, 235, 1);
+          //padding: 0rem 1rem;
+
+          thead {
+            background-color: rgba(249, 250, 251, 1);
+
+            tr {
+              
+              th {
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: rgba(107, 114, 128, 1);
+                text-align: left;
+                font-size: 0.75rem;
+                line-height: 1rem;
+                padding: 1.1rem 0.3rem;
+                font-weight: 500;
+
+                &:first-child {
+                  padding-left: 1rem;
+                }
+                &:last-child {
+                  padding-right: 1rem;
+                }
+              }
+            }
+          }
+          
+          tbody {
+            background-color: rgba(255, 253, 253, 1);
+            --tw-divide-y-reverse: 0;
+            border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+            border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+            border-color: rgba(229, 231, 235, 1);
+
+            tr {
+              td {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 1.1rem 0.3rem;
+                font-weight: 400;
+
+                .coin-name {
+                  font-weight: 600;
+                  margin: 0rem 0.4rem;
+                }
+
+                .coin-symbol {
+                  color: rgba(229, 231, 235, 1);
+                }
+
+                &:first-child {
+                  padding-left: 1rem;
+                }
+                &:last-child {
+                  padding-right: 1rem;
+                }
+              }
+
+              .not-found {
+                text-align: center;
+                padding: 1rem;
+                color: rgba(107, 114, 128, 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   
 }
-.mt-6 {
-    margin-top: 6rem;
-
-  }
-
-
-// @media screen and (min-width: 767px) {
-//   .home {
-//     margin: 6rem 2rem 0rem 2rem;
-
-//     .hero {
-//       grid-template-columns: repeat(2,1fr);
-//       -ms-grid-template-columns: repeat(2,1fr);
-
-//       .globalStatsGrid {
-//         // grid-template-columns: repeat(3,1fr);
-//         // -ms-grid-template-columns: repeat(3,1fr);
-//         grid-template-columns: repeat(1,1fr) !important;
-//         -ms-grid-template-columns: repeat(1,1fr) !important;
-//       }
-//     }
-//   }
-// }
 
 @media screen and (min-width: 767px) {
   .crypto-table {
     margin-top: 6rem;
     padding: 0rem 2rem;
+
+    table {
+      
+
+      thead {
+
+        tr th {
+          padding: 1.1rem 0.7rem;
+        }
+      }
+      
+    }
   }
   .home {
     margin: 6rem 2rem 0rem 2rem;
