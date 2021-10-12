@@ -13,9 +13,19 @@ const CryptoDetail = () => {
     
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
+    if (isFetching) return "Loading...";
     return (
-        <div className="crypto-detail">
-            Hello World
+        <div className="crypto-detail coin-detail-container">
+            <div className="coin-heading-container">
+                <h1 className="coin-name">
+                    {cryptoDetails.name} ({cryptoDetails.slug}) Price
+                </h1>
+                <p>
+                    {cryptoDetails.name} live price in US dollars.
+                    View value statistics, market cap and supply.
+                </p>
+            </div>
+            
         </div>
     )
 }
