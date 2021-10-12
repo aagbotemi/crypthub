@@ -27,11 +27,13 @@ export default function DataTable({ topTen }) {
 
   return (
     <div className="crypto-list">
-      <h1>Cryptocurrency List</h1>
-      {!topTen && <div className="search-crypto">
-        <input placeholder="Search for a currency" onChange={(e) => setSearchTerm(e.target.value)} />
-        <BiSearch className="" size="26px" color="gray" />
-      </div>}
+      {!topTen && <>
+        <h1>Cryptocurrency List</h1>
+        <div className="search-crypto">
+          <input placeholder="Search for a currency" onChange={(e) => setSearchTerm(e.target.value)} />
+          <BiSearch className="" size="26px" color="gray" />
+        </div>
+      </>}
       <div className="crypto-table">
         <div className="crypto-table-inner-1">
           <div className="crypto-table-inner-2">
