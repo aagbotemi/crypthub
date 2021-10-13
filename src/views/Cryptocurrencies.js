@@ -5,6 +5,7 @@ import millify from "millify";
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { formatNumWithComma } from '../utils/formatNumWithComma';
+import { numFormatter } from '../utils/numFormatter';
 
 
 
@@ -89,9 +90,18 @@ export default function DataTable({ topTen }) {
                           <td className={currency?.change < 0 ? "red" : "green"}>
                             {currency.change < 0 ? <AiFillCaretDown size="12px" /> : <AiFillCaretUp size="12px" />}{Math.abs(currency?.change)}
                           </td>
-                          <td>&#36;{currency?.marketCap}</td>
-                          <td>&#36;{currency?.volume}</td>
-                          <td>&#36;{currency?.circulatingSupply}</td>
+                          <td>
+                            <span className="d-none d-md-block">&#36;{formatNumWithComma(currency?.marketCap)}</span>
+                            <span className="d-md-none">&#36;{millify(currency?.marketCap)}</span>
+                          </td>
+                          <td>
+                            <span className="d-none d-md-block">&#36;{formatNumWithComma(currency?.volume)}</span>
+                            <span className="d-md-none">&#36;{millify(currency?.volume)}</span>
+                          </td>
+                          <td>
+                            <span className="d-none d-md-block">&#36;{formatNumWithComma(currency?.circulatingSupply)}</span>
+                            <span className="d-md-none">&#36;{numFormatter(currency?.circulatingSupply)}</span>
+                          </td>
                       </tr>
                     )
                   })}

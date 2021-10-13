@@ -24,3 +24,15 @@ body {
 a {
     text-decoration: none;
 }
+
+.d-none {
+    display: none;
+}
+@media only screen and (min-width: 767px) {
+    .d-md-block {
+        display: block;
+    }
+    .d-md-none {
+        display: none;
+    }
+}
