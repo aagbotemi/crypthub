@@ -68,7 +68,8 @@ export default function DataTable({ topTen }) {
                 </thead>
 
                 <tbody>
-                  {cryptos.length === 0 || cryptos === undefined 
+                  {/* {cryptos.length === 0 || cryptos === undefined  */}
+                  {cryptos === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found">No cryptocurrency found</td>
                   </tr>
@@ -77,7 +78,7 @@ export default function DataTable({ topTen }) {
                       <tr  className="">
                           <td>{index + 1}</td>
                           <td>
-                            <Link to={`crypto/${currency?.id}`}>
+                            <Link className="crypto-name" to={`crypto/${currency?.id}`}>
                               <img className="crypto-image" src={currency?.iconUrl} alt={currency?.name} width="18px" />
                               <span className="coin-name">{currency?.name}</span>
                               <span className="coin-symbol">{currency?.symbol}</span>

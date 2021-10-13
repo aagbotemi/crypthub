@@ -220,14 +220,24 @@
                   padding: 1.1rem 0.3rem;
                   font-weight: 400;
 
-                  .coin-name {
-                    font-weight: 600;
-                    margin: 0rem 0.4rem;
+                  .crypto-name {
+                    display: flex;
+                    align-items: center;
+                    color: #41415A;
+
+                    .coin-name {
+                      font-weight: 500;
+                      font-size: 1rem;
+                      margin: 0rem 0.4rem;
+                    }
+  
+                    .coin-symbol {
+                      background-color: rgb(236, 237, 240);
+                      border-radius: 5px;
+                      padding: .1rem .2rem;
+                    }
                   }
 
-                  .coin-symbol {
-                    color: rgba(229, 231, 235, 1);
-                  }
 
                   &:first-child {
                     padding-left: 1rem;
