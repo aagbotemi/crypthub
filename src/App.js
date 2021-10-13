@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/cryptocurrencies" component={Cryptocurrencies} />
-        <Route path="/crypto/:coinId" component={CryptoDetail} />
+        <Route path="/currencies/:coinId" component={CryptoDetail} />
       </Switch>
     </Router>
   );

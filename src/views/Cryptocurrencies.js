@@ -80,7 +80,7 @@ export default function DataTable({ topTen }) {
                       <tr  className="">
                           <td>{index + 1}</td>
                           <td>
-                            <Link className="crypto-name" to={`crypto/${currency?.id}`}>
+                            <Link className="crypto-name" to={`currencies/${currency?.slug}`}>
                               <img className="crypto-image" src={currency?.iconUrl} alt={currency?.name} width="18px" />
                               <span className="coin-name">{currency?.name}</span>
                               <span className="coin-symbol">{currency?.symbol}</span>
