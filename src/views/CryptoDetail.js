@@ -3,7 +3,7 @@ import { useGetCryptoDetailQuery, useGetCryptoHistoryQuery } from '../services/c
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import LineChart from './LineChart';
+import LineChart from '../components/LineChart';
 
 const CryptoDetail = () => {
     const { coinId } = useParams();

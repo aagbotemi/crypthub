@@ -17,11 +17,13 @@ export default function DataTable({ topTen }) {
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    const filteredData = cryptosList?.data?.coins.filter((coin) => {
-      return Object.values(coin).some(name => String(name).toLowerCase()).includes(searchTerm.toLowerCase())
-    })
+    // const filteredData = cryptosList?.data?.coins.filter((coin) => {
+    //   return Object.values(coin).some(name => String(name).toLowerCase().includes(searchTerm.toLowerCase()))
+    // })
+    const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    console.log(filteredData)
     setCryptos(filteredData)
-  }, [cryptosList, searchTerm])
+  }, [cryptosList?.data?.coins, searchTerm])
 
   if (isFetching) return "Loading...";
 
@@ -66,11 +68,11 @@ export default function DataTable({ topTen }) {
                 </thead>
 
                 <tbody>
-                  {cryptosList?.data?.coins.length === 0 || cryptosList?.data?.coins === undefined 
+                  {cryptos.length === 0 || cryptos === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found">No cryptocurrency found</td>
                   </tr>
-                : cryptosList?.data?.coins.map((currency, index) => { 
+                : cryptos.map((currency, index) => { 
                     return (
                       <tr  className="">
                           <td>{index + 1}</td>
