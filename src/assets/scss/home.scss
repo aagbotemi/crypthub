@@ -170,9 +170,6 @@
 
           table {
             width: 100%;
-            --tw-divide-y-reverse: 0;
-            border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-            border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
             border-color: rgba(229, 231, 235, 1);
 
             thead {
@@ -204,50 +201,45 @@
             }
             
             tbody {
-              background-color: rgba(255, 253, 253, 1);
-              --tw-divide-y-reverse: 0;
-              border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-              border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
-              border-color: rgba(229, 231, 235, 1);
-
               tr {
                 td {
+                  border-top: 1px solid rgb(230, 230, 230);
                   font-size: 1rem;
                   line-height: 1.25rem;
                   overflow: hidden;
                   text-overflow: ellipsis;
                   white-space: nowrap;
-                  padding: 1.1rem 0.3rem;
+                  padding: 1rem 0.3rem;
                   font-weight: 400;
-
+                  
                   .crypto-name {
                     display: flex;
                     align-items: center;
                     color: #41415A;
-
+                    
                     .coin-name {
                       font-weight: 500;
                       font-size: 1rem;
                       margin: 0rem 0.4rem;
                     }
-  
+                    
                     .coin-symbol {
                       background-color: rgb(236, 237, 240);
                       border-radius: 5px;
                       padding: .1rem .2rem;
                     }
                   }
-
-
+                  
+                  
                   &:first-child {
                     padding-left: 1rem;
                   }
-
+                  
                   &:last-child {
                     padding-right: 1rem;
                   }
                 }
-
+                
                 .not-found {
                   text-align: center;
                   padding: 1rem;

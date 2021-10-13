@@ -42,7 +42,7 @@ export default function DataTable({ topTen }) {
         <div className="crypto-table-inner-1">
           <div className="crypto-table-inner-2">
             <div className="crypto-table-inner-3">
-              <table>
+              <table cellspacing='0'>
                 <thead>
                   <tr>
                     <th scope="col">
