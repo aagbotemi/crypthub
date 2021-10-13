@@ -9,7 +9,7 @@ import { numFormatter } from '../utils/numFormatter';
 
 
 
-export default function DataTable({ topTen }) {
+export default function Cryptocurrencies({ topTen }) {
 
 
 
@@ -73,14 +73,14 @@ export default function DataTable({ topTen }) {
                   {/* {cryptos.length === 0 || cryptos === undefined  */}
                   {cryptos === undefined 
                   ? <tr>
-                    <td colSpan="7" className="not-found">No cryptocurrency found</td>
+                    <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
                   </tr>
-                : cryptos.map((currency, index) => { 
+                : cryptos?.map((currency, index) => { 
                     return (
-                      <tr  className="">
+                      <tr key={currency?.id} className="">
                           <td>{index + 1}</td>
                           <td>
-                            <Link className="crypto-name" to={`currencies/${currency?.slug}`}>
+                            <Link className="crypto-name" to={`crypto/${currency?.id}`}>
                               <img className="crypto-image" src={currency?.iconUrl} alt={currency?.name} width="18px" />
                               <span className="coin-name">{currency?.name}</span>
                               <span className="coin-symbol">{currency?.symbol}</span>
