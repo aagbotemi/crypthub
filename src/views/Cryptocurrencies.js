@@ -4,6 +4,7 @@ import { useGetCryptosQuery } from '../services/cryptoApi';
 import millify from "millify";
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
+import { formatNumWithComma } from '../utils/formatNumWithComma';
 
 
 
@@ -84,7 +85,7 @@ export default function DataTable({ topTen }) {
                               <span className="coin-symbol">{currency?.symbol}</span>
                             </Link>
                           </td>
-                          <td>&#36;{currency?.price}</td>
+                        <td>&#36;{formatNumWithComma(currency?.price)}</td>
                           <td className={currency?.change < 0 ? "red" : "green"}>
                             {currency.change < 0 ? <AiFillCaretDown size="12px" /> : <AiFillCaretUp size="12px" />}{Math.abs(currency?.change)}
                           </td>

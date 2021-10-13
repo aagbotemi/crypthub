@@ -1,6 +1,3 @@
 export const formatNumWithComma = (num) => {
-    return num.toLocaleString(
-        undefined,
-        { maximumFractionDigits: 2 }
-    );
+    return parseFloat(num).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
