@@ -104,25 +104,14 @@
                                     white-space: nowrap;
                                     padding: 1rem 0.3rem;
                                     font-weight: 400;
-                                
-                                    .exchange-market-crypto-name {
+
+                                    .market-main {
                                         display: flex;
-                                        align-items: center;
-                                        color: #41415A;
-                                        
-                                        .exchange-market-coin-name {
-                                            font-weight: 500;
-                                            font-size: 1rem;
-                                            margin: 0rem 0.4rem;
-                                        }
-                                        
-                                        .exchange-market-coin-symbol {
-                                            background-color: rgb(236, 237, 240);
-                                            border-radius: 5px;
-                                            padding: .1rem .2rem;
+
+                                        .exchange-market-crypto-image {
+                                            margin-right: .6rem;
                                         }
                                     }
-                                
                                 
                                     &:first-child {
                                         padding-left: 1rem;

@@ -6,7 +6,7 @@ import { BiHome } from "react-icons/bi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaExchangeAlt } from "react-icons/fa";
-import { GiNewspaper } from "react-icons/gi";
+import { SiMarketo } from "react-icons/si";
 
 const menuItems = [
   {
@@ -25,12 +25,11 @@ const menuItems = [
     icon: <FaExchangeAlt />
   },
   {
-    title: "News",
-    url: "/news",
-    icon: <GiNewspaper />
+    title: "Markets",
+    url: "/markets",
+    icon: <SiMarketo />
   },
 ];
-
 
 const Navbar = () => {
   const [active, setActive] = useState(false);

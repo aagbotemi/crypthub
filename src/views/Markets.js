@@ -2,36 +2,23 @@ import React, { useEffect, useState } from 'react';
 import millify from 'millify';
 import HTMLReactParser from 'html-react-parser';
 
-import { useGetExchangesQuery } from '../services/cryptoApi';
+import { useGetMarketsQuery } from '../services/cryptoApi';
 import { numFormatter } from '../utils/numFormatter';
 import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import{ BiSearch } from 'react-icons/bi'
 
-const Exchanges = () => {
-  const { data, isFetching } = useGetExchangesQuery();
-  const [exchanges, setExchanges] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-
-  console.log(exchanges);
-
-  useEffect(() => {
-    const filteredData = data?.data?.exchanges?.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    setExchanges(filteredData)
-  }, [data?.data?.exchanges, searchTerm])
+const Markets = () => {
+  const { data, isFetching } = useGetMarketsQuery();
+  const marketsList = data?.data?.markets;
 
   if (isFetching) return "Loading...";
 
   return (
     <div className="exchange-market-crypto-list">
-      <h3 className="text-center">Top crypto exchanges</h3>
-      <p className="text-center">Compare all {data?.data?.exchanges?.length} top crypto exchanges. The list is ranked by trading volume.</p>
-
-      <div className="search-crypto">
-        <input placeholder="Find an exchange" onChange={(e) => setSearchTerm(e.target.value)} />
-        <BiSearch className="" size="26px" color="gray" />
-      </div>
+      <h3 className="text-center">Top crypto exchange markets</h3>
+      <p className="text-center">Discover all {marketsList?.length} cryptocurrency markets and top trading pairs from every exchange, ranked by trading volume.</p>
 
       <div className="exchange-market-crypto-table">
         <div className="exchange-market-crypto-table-inner-1">
@@ -44,13 +31,13 @@ const Exchanges = () => {
                       rank
                     </th>
                     <th scope="col">
-                      Exchanges
-                    </th>
-                    <th scope="col">
-                      24h Trade Volume
-                    </th>
-                    <th scope="col">
                       Markets
+                    </th>
+                    <th scope="col">
+                      Base Price
+                    </th>
+                    <th scope="col">
+                       24h Trade Volume
                     </th>
                     <th scope="col">
                       Change
@@ -59,26 +46,29 @@ const Exchanges = () => {
                 </thead>
 
                 <tbody>
-                  {exchanges === undefined 
+                  {marketsList === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
-                  </tr>
-                : exchanges?.map((exchange) => { 
+                </tr>
+                : marketsList?.map((market) => { 
                     return (
-                      <tr key={exchange?.id} className="">
-                          <td>{exchange?.rank}</td>
+                      <tr key={market?.id} className="">
+                          <td>{market?.rank}</td>
                           <td>
                             <div className="market-main">
-                              <img className="exchange-market-crypto-image" src={exchange?.iconUrl} alt={exchange?.name} width="25px" />
-                              <span className="exchange-market-coin-name">{exchange?.name}</span>
+                                <img className="exchange-market-crypto-image" src={market?.sourceIconUrl} alt={market?.name} width="25px" />
+                                <div>
+                                    <strong className="exchange-market-coin-name">{market?.baseSymbol}/{market?.quoteSymbol}</strong>
+                                    <div>{market?.sourceName}</div>
+                                </div>
                             </div>
                           </td>
-                          <td>&#36;{millify(exchange?.volume)}</td>
+                          <td>&#36;{formatNumWithComma(market?.price)}</td>
                           <td>
-                            {millify(exchange?.numberOfMarkets) }
+                            {numFormatter(market?.volume) }
                           </td>
                           <td>
-                            {millify(exchange?.marketShare)}
+                            {millify(market?.marketShare)}
                           </td>
                       </tr>
                     )
@@ -96,4 +86,4 @@ const Exchanges = () => {
   );
 }
 
-export default Exchanges
+export default Markets
