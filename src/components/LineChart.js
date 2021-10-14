@@ -4,9 +4,9 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     
-    console.log(coinHistory);
-    console.log(currentPrice);
-    console.log(coinName);
+    // console.log(coinHistory);
+    // console.log(currentPrice);
+    // console.log(coinName);
     const coinPrice = [];
     const coinTimestamp = [];
 

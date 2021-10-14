@@ -82,6 +82,47 @@
             }
         }
     }
+
+    .stats-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 2.5rem;
+
+        .coin-value-statistics {
+            .coin-value-statistics-header {
+                h3 {
+                    font-weight: 500;
+                    font-size: 1.7rem;
+                    line-height: 100%;
+                }
+
+                p {
+                    margin: .35rem 0rem;
+                }
+            }
+
+            .coin-stats {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid rgba(229, 231, 235, 1);
+                font-size: 1rem;
+                padding: 15px;
+
+                .coin-stats-name {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 1rem;
+                }
+
+                &:hover {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 767px) {
@@ -99,6 +140,18 @@
             
             .price-container {
                 margin: 0rem;
+            }
+        }
+
+        .stats-container {
+            flex-direction: row;
+
+            .coin-value-statistics {
+                .coin-value-statistics-header {
+                    h3 {
+                        font-size: 2.7rem;
+                    }
+                }
             }
         }
     }

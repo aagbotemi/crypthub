@@ -10,7 +10,7 @@ const Home = () => {
     const globalStats = data?.data?.stats
     const currency = data?.data?.base.sign
     
-    console.log(data?.data);
+    // console.log(data?.data);
 
     return (
         <section className="home">

@@ -23,7 +23,7 @@ export default function Cryptocurrencies({ topTen }) {
     //   return Object.values(coin).some(name => String(name).toLowerCase().includes(searchTerm.toLowerCase()))
     // })
     const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    console.log(filteredData)
+    // console.log(filteredData)
     setCryptos(filteredData)
   }, [cryptosList?.data?.coins, searchTerm])
 
