@@ -15,6 +15,7 @@ function App() {
         <Route path="/cryptocurrencies" component={Cryptocurrencies} />
         <Route path="/currencies/:coinId" component={CryptoDetail} />
       </Switch>
+      <Footer />
     </Router>
   );
 }
