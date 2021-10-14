@@ -110,7 +110,23 @@ const CryptoDetail = () => {
                     </h3>
                     <p>{HTMLReactParser(cryptoDetails.description)}</p>
                 </div>
-                <div className="coin-links">weredtgrew</div>
+                <div className="coin-links">
+                    <h3>
+                        {cryptoDetails.name} links
+                    </h3>
+                    {cryptoDetails.links.map((link) => (
+                        <div className="coin-link" key={link.name}>
+                            <h5 className="link-name">
+                                {link.type}
+                            </h5>
+                            <div className='link'>
+                                <a href={link.url} target="_blank" rel="noreferrer">
+                                    {link.name}
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
         </div>
