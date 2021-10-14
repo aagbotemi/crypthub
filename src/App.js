@@ -10,14 +10,18 @@ import Exchanges from './views/Exchanges';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/cryptocurrencies" component={Cryptocurrencies} />
-        <Route path="/currencies/:coinId" component={CryptoDetail} />
-        <Route path="/exchanges" component={Exchanges} />
-      </Switch>
-      <Footer />
+      <div className="main-container">
+        <Navbar />
+        <div className="main">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/cryptocurrencies" component={Cryptocurrencies} />
+            <Route path="/currencies/:coinId" component={CryptoDetail} />
+            <Route path="/exchanges" component={Exchanges} />
+          </Switch>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }

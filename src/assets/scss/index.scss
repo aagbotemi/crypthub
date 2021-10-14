@@ -41,3 +41,13 @@ a {
         display: none;
     }
 }
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+    .main {
+        margin: auto 0;
+        min-height: calc(100vh - 13.375rem);
+    }
+}
