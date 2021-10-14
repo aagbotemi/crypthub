@@ -42,7 +42,7 @@ export default function Cryptocurrencies({ topTen }) {
         <div className="crypto-table-inner-1">
           <div className="crypto-table-inner-2">
             <div className="crypto-table-inner-3">
-              <table cellspacing='0'>
+              <table cellSpacing='0'>
                 <thead>
                   <tr>
                     <th scope="col">

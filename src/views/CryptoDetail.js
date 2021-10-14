@@ -7,17 +7,22 @@ import LineChart from '../components/LineChart';
 
 const CryptoDetail = () => {
     const { coinId } = useParams();
-    const [timePeriod, setTimePeriod] = useState('7d');
+    const [timePeriod, setTimePeriod] = useState('30d');
     const { data, isFetching } = useGetCryptoDetailQuery(coinId);
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod });
     const cryptoDetails = data?.data?.coin;
+
+    console.log(coinHistory);
+    console.log(timePeriod);
+    console.log(coinId);
+    console.log(cryptoDetails);
     
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
     if (isFetching) return "Loading...";
     return (
-        <div className="crypto-detail coin-detail-container">
-            <div className="coin-heading-container">
+        <div className="coin-detail-container">
+            <div className="coin-header-container text-center">
                 <h1 className="coin-name">
                     {cryptoDetails.name} ({cryptoDetails.slug}) Price
                 </h1>
@@ -26,14 +31,15 @@ const CryptoDetail = () => {
                     View value statistics, market cap and supply.
                 </p>
             </div>
-            <select
-                defaultValue="7d"
-                className="select-timeperiod"
-                placeholder="Select Time Period"
-                onChange={(value) => setTimePeriod(value)}
-            >
-                {time.map((date) => <option key={date}>{date}</option>)}
-            </select>
+            {/* <div className="select-timeperiod">
+                <select
+                    defaultValue="7d"
+                    placeholder="Select Time Period"
+                    onChange={(value) => setTimePeriod(value)}
+                >
+                    {time.map((date) => <option key={date}>{date}</option>)}
+                </select>
+            </div> */}
             {/* Line Chart */}
             <LineChart
                 coinHistory={coinHistory}

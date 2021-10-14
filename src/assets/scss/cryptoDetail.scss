@@ -1,3 +1,111 @@
-.crypto-detail {
-    margin-top: 6rem;
+.coin-detail-container {
+    margin: 5rem .8rem 0rem;
+
+    .coin-header-container {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 3rem;
+        .coin-name {
+            font-weight: 500;
+            font-size: 1.8rem;
+        }
+        p {
+            margin: .3rem 0rem 1rem;
+        }
+    }
+
+    .select-timeperiod {
+        position: relative;
+        display: flex;
+        max-width: 20rem;
+        height: 2.7rem;
+        border-radius: .25em;
+        overflow: hidden;
+        margin-bottom: 1rem;
+
+        select {
+            /* Reset Select */
+            appearance: none;
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+            /* Personalize */
+            flex: 1;
+            padding: 0 1em;
+            color: #222;
+            background-color:#e7f0f8;
+            background-image: none;
+            cursor: pointer;
+
+            option {
+                margin: 3rem 0rem;
+            }
+
+            &::-ms-expand {
+                /* Remove IE arrow */
+                display: none;
+            }
+        }
+        /* Arrow */
+        &::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: .8rem;
+            height: 100%;
+            background-color: #b0c0d1;
+            transition: .25s all ease;
+            pointer-events: none;
+        }
+        /* Transition */
+        &:hover::after {
+            color: #222;
+        }
+
+    }
+
+    .chart-header-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        h2 {
+            font-weight: 500;
+        }
+        
+        .price-container {
+            margin: .5rem 0rem;
+            h5{
+                margin-bottom: .15rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .coin-detail-container {
+        margin: 6rem 2rem 0rem 2rem;
+
+        .coin-header-container {
+            .coin-name {
+                font-size: 2.5rem;
+            }
+        }
+
+        .chart-header-container {
+            flex-direction: row;
+            
+            .price-container {
+                margin: 0rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .coin-detail-container {
+        margin: 6rem 3rem 0rem 4rem;
+    }
 }

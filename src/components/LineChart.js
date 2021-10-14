@@ -1,7 +1,12 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
+
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
+    
+    console.log(coinHistory);
+    console.log(currentPrice);
+    console.log(coinName);
     const coinPrice = [];
     const coinTimestamp = [];
 
@@ -40,11 +45,11 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
     return (
         <>
-            <div className="chart-header">
-                <h1 level={2} className="chart-title">{coinName} Price Chart </h1>
+            <div className="chart-header-container">
+                <h2 className="chart-title">{coinName} Price Chart </h2>
                 <div className="price-container">
-                    <h3 level={5} className="price-change">Change: {coinHistory?.data?.change}%</h3>
-                    <h3 level={5} className="current-price">Current {coinName} Price: $ {currentPrice}</h3>
+                    <h5 className="current-price">Current {coinName} Price: ${currentPrice}</h5>
+                    <h5 className="price-change">Change: {coinHistory?.data?.change}%</h5>
                 </div>
             </div>
             <Line data={data} options={options} />
