@@ -13,6 +13,33 @@
         margin-bottom: 1.8rem;
     }
 
+    .search-crypto {
+        position: relative;
+        margin: .8rem 0rem;
+        // text-align: center;
+
+        svg {
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            padding-right: 3px;
+            border-right: 2px solid rgb(197, 198, 199);
+        }
+
+        input {
+            width: 50%;
+            height: 3.1rem;
+            border: 1px solid #9ea9b9;
+            font-size: 1.125rem;
+            padding: 0.35rem 0.5rem 0.35rem 2.35rem;
+            line-height: 1.75rem;
+            outline: none;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    }
+
+
   
     .exchange-market-crypto-table {
         display: flex;

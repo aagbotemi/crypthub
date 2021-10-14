@@ -10,20 +10,13 @@ import { numFormatter } from '../utils/numFormatter';
 
 
 export default function Cryptocurrencies({ topTen }) {
-
-
-
   const count = topTen ? 10 : 100
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
   const [cryptos, setCryptos] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    // const filteredData = cryptosList?.data?.coins.filter((coin) => {
-    //   return Object.values(coin).some(name => String(name).toLowerCase().includes(searchTerm.toLowerCase()))
-    // })
     const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    // console.log(filteredData)
     setCryptos(filteredData)
   }, [cryptosList?.data?.coins, searchTerm])
 
