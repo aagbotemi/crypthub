@@ -127,6 +127,24 @@
             }
         }
     }
+
+    .coin-desc-link {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 2.5rem;
+
+        .coin-details {
+            h3 {
+                margin-bottom: .4rem;
+                font-weight: 500;
+                font-size: 1.4rem;
+            }
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 767px) {
@@ -165,6 +183,9 @@
             .other-stats-info {
                 margin-top: 0rem;
             }
+        }
+        .coin-desc-link {
+            flex-direction: row;
         }
     }
 }

@@ -103,6 +103,16 @@ const CryptoDetail = () => {
                 </div>
             </div>
 
+            <div className="coin-desc-link">
+                <div className="coin-details">
+                    <h3>
+                        What is {cryptoDetails.name}
+                    </h3>
+                    <p>{HTMLReactParser(cryptoDetails.description)}</p>
+                </div>
+                <div className="coin-links">weredtgrew</div>
+            </div>
+
         </div>
     )
 }
