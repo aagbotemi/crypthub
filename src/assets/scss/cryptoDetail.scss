@@ -89,7 +89,11 @@
         flex-direction: column;
         margin-top: 2.5rem;
 
-        .coin-value-statistics {
+        .other-stats-info {
+            margin-top: 2rem;
+        }
+
+        .coin-value-statistics, .other-stats-info {
             .coin-value-statistics-header {
                 h3 {
                     font-weight: 500;
@@ -142,16 +146,24 @@
                 margin: 0rem;
             }
         }
+    }
+}
 
+@media screen and (min-width: 850px) {
+    .coin-detail-container {
         .stats-container {
             flex-direction: row;
 
-            .coin-value-statistics {
+            .coin-value-statistics, .other-stats-info {
                 .coin-value-statistics-header {
                     h3 {
-                        font-size: 2.7rem;
+                        font-size: 2.1rem;
                     }
                 }
+            }
+
+            .other-stats-info {
+                margin-top: 0rem;
             }
         }
     }

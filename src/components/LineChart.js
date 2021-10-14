@@ -3,10 +3,6 @@ import { Line } from 'react-chartjs-2';
 
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-    
-    // console.log(coinHistory);
-    // console.log(currentPrice);
-    // console.log(coinName);
     const coinPrice = [];
     const coinTimestamp = [];
 
@@ -46,7 +42,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     return (
         <>
             <div className="chart-header-container">
-                <h2 className="chart-title">{coinName} Price Chart </h2>
+                <h2 className="chart-title">{coinName} Price Chart <span style={{fontSize: "14px"}}>(for the past 7 days)</span> </h2>
                 <div className="price-container">
                     <h5 className="current-price">Current {coinName} Price: ${currentPrice}</h5>
                     <h5 className="price-change">Change: {coinHistory?.data?.change}%</h5>

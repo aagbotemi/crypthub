@@ -6,31 +6,32 @@ import millify from 'millify';
 import LineChart from '../components/LineChart';
 import { numFormatter } from '../utils/numFormatter';
 
-import { AiOutlineDollar, AiOutlineNumber, AiOutlineTrophy, AiOutlineThunderbolt } from "react-icons/ai"
+import { AiOutlineDollar, AiOutlineFund, AiOutlineMoneyCollect, AiOutlineNumber, AiOutlineTrophy, AiOutlineThunderbolt, AiOutlineStop, AiOutlineCheck, AiOutlineExclamation, AiOutlineExclamationCircle } from "react-icons/ai"
 
 const CryptoDetail = () => {
     const { coinId } = useParams();
-    const [timePeriod, setTimePeriod] = useState('30d');
+    const [timePeriod, setTimePeriod] = useState('7d');
     const { data, isFetching } = useGetCryptoDetailQuery(coinId);
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod });
     const cryptoDetails = data?.data?.coin;
 
-    // console.log(coinHistory);
-    // console.log(timePeriod);
-    // console.log(coinId);
-    
-    const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+    // const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
     
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <AiOutlineDollar size="21px" /> },
         { title: 'Rank', value: cryptoDetails?.rank, icon: <AiOutlineNumber size="21px" /> },
         { title: '24h Volume', value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`, icon: <AiOutlineThunderbolt size="21px" /> },
         { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <AiOutlineDollar size="21px" /> },
-        { title: 'All-time-high(daily avg.)', value: `$ ${numFormatter(cryptoDetails?.allTimeHigh?.price)}`, icon: <AiOutlineTrophy /> },
+        { title: 'All-time-high(daily avg.)', value: `$ ${numFormatter(cryptoDetails?.allTimeHigh?.price)}`, icon: <AiOutlineTrophy size="21px" /> },
     ];
-    
-    // console.log(cryptoDetails?.allTimeHigh?.price);
-    // console.log(stats);
+
+    const genericStats = [
+        { title: 'Number Of Markets', value: cryptoDetails?.numberOfMarkets, icon: <AiOutlineFund size="21px" /> },
+        { title: 'Number Of Exchanges', value: cryptoDetails?.numberOfExchanges, icon: <AiOutlineMoneyCollect size="21px" /> },
+        { title: 'Aprroved Supply', value: cryptoDetails?.approvedSupply ? <AiOutlineCheck color='green' size="21px" /> : <AiOutlineStop color='red' size="21px" />, icon: <AiOutlineExclamation size="21px" /> },
+        { title: 'Total Supply', value: `$ ${numFormatter(cryptoDetails?.totalSupply)}`, icon: <AiOutlineExclamationCircle size="21px" /> },
+        { title: 'Circulating Supply', value: `$ ${numFormatter(cryptoDetails?.circulatingSupply)}`, icon: <AiOutlineExclamationCircle size="21px" /> },
+    ];
     
     if (isFetching) return "Loading...";
     return (
@@ -82,23 +83,23 @@ const CryptoDetail = () => {
                 </div>
 
                 <div className="other-stats-info">
-                    <div className="coin-value-statistics-heading">
-                        <h3 className="coin-details-heading">
+                    <div className="coin-value-statistics-header">
+                        <h3>
                             Other Statistics
                         </h3>
                         <p>
                             An overview showing the stats of all cryptocurrencies
                         </p>
                     </div>
-                    {/* {genericStats.map(({ icon, title, value }) => (
-                        <Col className="coin-stats">
-                            <Col className="coin-stats-name">
-                                <Text>{icon}</Text>
-                                <Text>{title}</Text>
-                            </Col>
-                            <Text className="stats">{value}</Text>
-                        </Col>
-                    ))} */}
+                    {genericStats.map(({ icon, title, value }) => (
+                        <div className="coin-stats">
+                            <div className="coin-stats-name">
+                                <p>{icon}</p>
+                                <p>{title}</p>
+                            </div>
+                            <p className="stats">{value}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
 
