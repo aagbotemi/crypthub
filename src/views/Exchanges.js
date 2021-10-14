@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Exhanges = () => {
+const Exchanges = () => {
   return (
     <div>
       Hello World, tHIS is the cypto market folder
@@ -8,4 +8,4 @@ const Exhanges = () => {
   );
 }
 
-export default Exhanges
+export default Exchanges
