@@ -5,6 +5,7 @@ import Home from './views/Home';
 import Cryptocurrencies from './views/Cryptocurrencies';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import CryptoDetail from './views/CryptoDetail';
+import Exchanges from './views/Exchanges';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/cryptocurrencies" component={Cryptocurrencies} />
         <Route path="/currencies/:coinId" component={CryptoDetail} />
+        <Route path="/exchanges" component={Exchanges} />
       </Switch>
       <Footer />
     </Router>
