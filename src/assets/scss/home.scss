@@ -7,11 +7,10 @@
 
 .bold {
   font-weight: 500;
-  // font-size: 13px;
 }
 
 .home {
-  margin: 6rem .8rem 0rem;
+  margin: 5rem .8rem 0rem;
   
   .hero {
     display: -ms-grid;
@@ -49,7 +48,6 @@
   }
   
   .globalStats {
-    margin-top: 1.5rem;
 
     h1 {
       margin-bottom: 0.4rem;
@@ -276,6 +274,8 @@
       }
     }
   }
+
+
   
   .home {
     margin: 6rem 2rem 0rem 2rem;
@@ -301,9 +301,14 @@
       }
     }
 
-    .globalStatsGrid {
-      grid-template-columns: repeat(3,1fr) !important;
-      -ms-grid-template-columns: repeat(3,1fr) !important;
+    .globalStats {
+      margin-top: 1.5rem;
+      .globalStatsGrid {
+        grid-template-columns: repeat(3,1fr);
+        -ms-grid-template-columns: repeat(3,1fr);
+        
+        
+      }
     }
   }
 }
