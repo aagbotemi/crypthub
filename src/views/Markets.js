@@ -12,7 +12,7 @@ import{ BiSearch } from 'react-icons/bi'
 const Markets = () => {
   const { data, isFetching } = useGetMarketsQuery();
   const [markets, setMarkets] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState('') 
 
   useEffect(() => {
     const filteredData = data?.data?.markets.filter((coin) => {
@@ -29,7 +29,7 @@ const Markets = () => {
       <p className="text-center">Discover all {data?.data?.markets?.length} cryptocurrency markets and top trading pairs from every exchange, ranked by trading volume.</p>
       
       <div className="search-crypto">
-        <input placeholder="Find an exchange" onChange={(e) => setSearchTerm(e.target.value)} />
+        <input placeholder="Find a market" onChange={(e) => setSearchTerm(e.target.value)} />
         <BiSearch className="" size="26px" color="gray" />
       </div>
 
