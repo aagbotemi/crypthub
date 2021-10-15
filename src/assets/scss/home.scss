@@ -275,8 +275,6 @@
       }
     }
   }
-
-
   
   .home {
     margin: 6rem 2rem 0rem 2rem;
@@ -303,13 +301,15 @@
     }
 
     .globalStats {
-      margin-top: 1.5rem;
+      margin-top: 2.5rem;
       .globalStatsGrid {
         grid-template-columns: repeat(3,1fr);
         -ms-grid-template-columns: repeat(3,1fr);
-        
-        
       }
+    }
+
+    .home-heading-container {
+      margin-top: 2.5rem;
     }
   }
 }
