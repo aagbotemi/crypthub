@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import millify from 'millify';
 import LineChart from '../components/LineChart';
 import { numFormatter } from '../utils/numFormatter';
-
+import CircularLoading from '../components/CircularLoading'
 import { AiOutlineDollar, AiOutlineFund, AiOutlineMoneyCollect, AiOutlineNumber, AiOutlineTrophy, AiOutlineThunderbolt, AiOutlineStop, AiOutlineCheck, AiOutlineExclamation, AiOutlineExclamationCircle } from "react-icons/ai"
 
 const CryptoDetail = () => {
@@ -33,7 +33,7 @@ const CryptoDetail = () => {
         { title: 'Circulating Supply', value: `$ ${numFormatter(cryptoDetails?.circulatingSupply)}`, icon: <AiOutlineExclamationCircle size="21px" /> },
     ];
     
-    if (isFetching) return "Loading...";
+    if (isFetching) return <CircularLoading />;
     return (
         <div className="coin-detail-container">
             <div className="coin-header-container text-center">

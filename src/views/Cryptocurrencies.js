@@ -6,8 +6,7 @@ import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { numFormatter } from '../utils/numFormatter';
-
-
+import Loading from '../components/Loading'
 
 export default function Cryptocurrencies({ topTen }) {
   const count = topTen ? 10 : 100
@@ -20,12 +19,12 @@ export default function Cryptocurrencies({ topTen }) {
     setCryptos(filteredData)
   }, [cryptosList?.data?.coins, searchTerm])
 
-  if (isFetching) return "Loading...";
+  // if (isFetching) return <Loading />
 
   return (
     <div className="crypto-list">
       {!topTen && <>
-        <h1>Cryptocurrency List</h1>
+        <h1>Cryptocurrencies</h1>
         <div className="search-crypto">
           <input placeholder="Search for a currency" onChange={(e) => setSearchTerm(e.target.value)} />
           <BiSearch className="" size="26px" color="gray" />
@@ -64,10 +63,15 @@ export default function Cryptocurrencies({ topTen }) {
 
                 <tbody>
                   {/* {cryptos.length === 0 || cryptos === undefined  */}
-                  {cryptos === undefined 
-                  ? <tr>
-                    <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
+                  {isFetching ?  <tr>
+                    <td colSpan="7">
+                      <Loading />
+                    </td>
                   </tr>
+                  : cryptos === undefined 
+                  ? <tr>
+                      <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
+                    </tr>
                 : cryptos?.map((currency, index) => { 
                     return (
                       <tr key={currency?.id} className="">

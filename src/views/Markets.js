@@ -8,6 +8,7 @@ import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import{ BiSearch } from 'react-icons/bi'
+import Loading from '../components/Loading'
 
 const Markets = () => {
   const { data, isFetching } = useGetMarketsQuery();
@@ -21,7 +22,7 @@ const Markets = () => {
     setMarkets(filteredData)
   }, [data?.data?.markets, searchTerm])
 
-  if (isFetching) return "Loading...";
+  // if (isFetching) return <Loading />;
 
   return (
     <div className="exchange-market-crypto-list">
@@ -59,11 +60,15 @@ const Markets = () => {
                 </thead>
 
                 <tbody>
-                  {markets === undefined 
+                  {isFetching ?
+                    <tr>
+                      <td colSpan="7"><Loading /></td>
+                    </tr>
+                  : markets === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
-                </tr>
-                : markets?.map((market) => { 
+                  </tr>
+                  : markets?.map((market) => { 
                     return (
                       <tr key={market?.id} className="">
                           <td>{market?.rank}</td>

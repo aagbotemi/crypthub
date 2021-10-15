@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loader = () => {
+const CircularLoading = () => {
     return (
         <div className="loader">
             <div className="spinner"></div>
@@ -8,4 +8,4 @@ const Loader = () => {
     )
 }
 
-export default Loader
+export default CircularLoading

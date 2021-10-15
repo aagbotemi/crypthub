@@ -4,13 +4,15 @@ import { useGetCryptosQuery } from '../services/cryptoApi'
 import { numFormatter } from '../utils/numFormatter'
 import Cryptocurrencies from './Cryptocurrencies'
 import { Link } from 'react-router-dom'
+import Loading from '../components/Loading'
+import CircularLoading from '../components/CircularLoading'
 
 const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
     const currency = data?.data?.base.sign
     
-    // console.log(data?.data);
+    // if (isFetching) return <Loading />
 
     return (
         <section className="home">
@@ -26,28 +28,33 @@ const Home = () => {
         
             <article className="globalStats">
                 <h1>Global Stats</h1>
-                <div className="globalStatsGrid">
-                    <div className="grid-item">
-                        <span className="stat-title">Total Cryptocurrencies</span>
-                        <div className="stat-content">{Number(globalStats?.total).toLocaleString("en-US")}</div>
+                {isFetching 
+                ? <CircularLoading />
+                : (
+                    <div className="globalStatsGrid">
+                        <div className="grid-item">
+                            <span className="stat-title">Total Cryptocurrencies</span>
+                            <div className="stat-content">{Number(globalStats?.total).toLocaleString("en-US")}</div>
+                        </div>
+                        <div className="grid-item">
+                            <span className="stat-title">Total Exchanges</span>
+                            <div className="stat-content">{globalStats?.totalExchanges}</div>
+                        </div>
+                        <div className="grid-item">
+                            <span className="stat-title">Total Market Cap</span>
+                            <div className="stat-content">{currency}{numFormatter(globalStats?.totalMarketCap)}</div>
+                        </div>
+                        <div className="grid-item">
+                            <span className="stat-title">Total 24h Volume</span>
+                            <div className="stat-content">{currency}{numFormatter(globalStats?.total24hVolume)}</div>
+                        </div>
+                        <div className="grid-item">
+                            <span className="stat-title">Total Markets</span>
+                            <div className="stat-content">{numFormatter(globalStats?.totalMarkets)}</div>
+                        </div>
                     </div>
-                    <div className="grid-item">
-                        <span className="stat-title">Total Exchanges</span>
-                        <div className="stat-content">{globalStats?.totalExchanges}</div>
-                    </div>
-                    <div className="grid-item">
-                        <span className="stat-title">Total Market Cap</span>
-                        <div className="stat-content">{currency}{numFormatter(globalStats?.totalMarketCap)}</div>
-                    </div>
-                    <div className="grid-item">
-                        <span className="stat-title">Total 24h Volume</span>
-                        <div className="stat-content">{currency}{numFormatter(globalStats?.total24hVolume)}</div>
-                    </div>
-                    <div className="grid-item">
-                        <span className="stat-title">Total Markets</span>
-                        <div className="stat-content">{numFormatter(globalStats?.totalMarkets)}</div>
-                    </div>
-                </div>
+                )}
+                
             </article>
 
             <div className="home-heading-container">

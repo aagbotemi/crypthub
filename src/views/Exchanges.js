@@ -8,22 +8,19 @@ import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import{ BiSearch } from 'react-icons/bi'
+import Loading from '../components/Loading'
 
 const Exchanges = () => {
   const { data, isFetching } = useGetExchangesQuery();
   const [exchanges, setExchanges] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
-  console.log(exchanges);
-
   useEffect(() => {
     const filteredData = data?.data?.exchanges?.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
     setExchanges(filteredData)
   }, [data?.data?.exchanges, searchTerm])
 
-  // console.log(exchanges);
-
-  if (isFetching) return "Loading...";
+  // if (isFetching) return <Loading />;
 
   return (
     <div className="exchange-market-crypto-list">
@@ -61,11 +58,15 @@ const Exchanges = () => {
                 </thead>
 
                 <tbody>
-                  {exchanges === undefined 
+                  {isFetching ?
+                    <tr>
+                      <td colSpan="7"><Loading /></td>
+                    </tr>
+                  : exchanges === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
                   </tr>
-                : exchanges?.map((exchange) => { 
+                  : exchanges?.map((exchange) => { 
                     return (
                       <tr key={exchange?.id} className="">
                           <td>{exchange?.rank}</td>
