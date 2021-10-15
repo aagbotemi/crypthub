@@ -21,6 +21,8 @@ const Exchanges = () => {
     setExchanges(filteredData)
   }, [data?.data?.exchanges, searchTerm])
 
+  // console.log(exchanges);
+
   if (isFetching) return "Loading...";
 
   return (

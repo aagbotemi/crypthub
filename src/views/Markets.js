@@ -11,14 +11,27 @@ import{ BiSearch } from 'react-icons/bi'
 
 const Markets = () => {
   const { data, isFetching } = useGetMarketsQuery();
-  const marketsList = data?.data?.markets;
+  const [markets, setMarkets] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+
+  useEffect(() => {
+    const filteredData = data?.data?.markets.filter((coin) => {
+        return Object.values(coin).some(name => String(name).toLowerCase().includes(searchTerm.toLowerCase()))
+    })
+    setMarkets(filteredData)
+  }, [data?.data?.markets, searchTerm])
 
   if (isFetching) return "Loading...";
 
   return (
     <div className="exchange-market-crypto-list">
       <h3 className="text-center">Top crypto exchange markets</h3>
-      <p className="text-center">Discover all {marketsList?.length} cryptocurrency markets and top trading pairs from every exchange, ranked by trading volume.</p>
+      <p className="text-center">Discover all {data?.data?.markets?.length} cryptocurrency markets and top trading pairs from every exchange, ranked by trading volume.</p>
+      
+      <div className="search-crypto">
+        <input placeholder="Find an exchange" onChange={(e) => setSearchTerm(e.target.value)} />
+        <BiSearch className="" size="26px" color="gray" />
+      </div>
 
       <div className="exchange-market-crypto-table">
         <div className="exchange-market-crypto-table-inner-1">
@@ -46,11 +59,11 @@ const Markets = () => {
                 </thead>
 
                 <tbody>
-                  {marketsList === undefined 
+                  {markets === undefined 
                   ? <tr>
                     <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
                 </tr>
-                : marketsList?.map((market) => { 
+                : markets?.map((market) => { 
                     return (
                       <tr key={market?.id} className="">
                           <td>{market?.rank}</td>
