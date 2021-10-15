@@ -87,6 +87,7 @@
   .home-heading-container {
     margin-top: 1.5rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 
@@ -96,8 +97,8 @@
     }
     
     .show-more a {
-      font-size: 1.4rem;
-      color: #24A4F0;
+      font-size: 1rem;
+      color: #0079D3;
       font-weight: 500;
       
       &:hover {
