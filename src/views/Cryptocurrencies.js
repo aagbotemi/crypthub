@@ -115,12 +115,14 @@ const Cryptocurrencies = ({ topTen }) => {
           </div>
         </div>
       </div>
-      <Pagination
-        data={cryptos}
-        itemsPerPage={itemsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
+      {!topTen && <>
+        <Pagination
+          data={cryptos}
+          itemsPerPage={itemsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+      </>}
     </div>
   );
 }
