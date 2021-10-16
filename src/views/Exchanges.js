@@ -20,8 +20,6 @@ const Exchanges = () => {
     setExchanges(filteredData)
   }, [data?.data?.exchanges, searchTerm])
 
-  // if (isFetching) return <Loading />;
-
   return (
     <div className="exchange-market-crypto-list">
       <h3 className="text-center">Top crypto exchanges</h3>
