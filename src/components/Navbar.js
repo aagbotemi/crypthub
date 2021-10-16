@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import Logo from '../assets/images/blockchain.png'
+import Logo from '../assets/images/logo.png'
 import { AiOutlineClose } from "react-icons/ai";
 import { BiHome } from "react-icons/bi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        <img src={Logo} alt="logo" width="40px" /> Crypthub
+        <img src={Logo} alt="logo" width="22px" /> Crypthub
       </Link>
       <div className="menu-icon" onClick={handleClick}>
         {active
