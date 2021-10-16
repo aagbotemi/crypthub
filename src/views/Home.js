@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import HeroImg from "./../assets/images/hero-image.png"
+import React from 'react'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import { numFormatter } from '../utils/numFormatter'
 import Cryptocurrencies from './Cryptocurrencies'
 import { Link } from 'react-router-dom'
-import Loading from '../components/Loading'
+import HeroImg from './../assets/images/hero.svg'
 import CircularLoading from '../components/CircularLoading'
 
 const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
     const currency = data?.data?.base.sign
-    
-    // if (isFetching) return <Loading />
 
     return (
         <section className="home">
