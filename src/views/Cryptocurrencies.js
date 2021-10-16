@@ -7,8 +7,9 @@ import { BiSearch } from 'react-icons/bi'
 import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { numFormatter } from '../utils/numFormatter';
 import Loading from '../components/Loading'
+import Pagination from '../components/Pagination';
 
-export default function Cryptocurrencies({ topTen }) {
+const Cryptocurrencies = ({ topTen }) => {
   const count = topTen ? 10 : 100
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
   const [cryptos, setCryptos] = useState([])
@@ -19,7 +20,13 @@ export default function Cryptocurrencies({ topTen }) {
     setCryptos(filteredData)
   }, [cryptosList?.data?.coins, searchTerm])
 
-  // if (isFetching) return <Loading />
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(50);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = cryptos?.slice(indexOfFirstItem, indexOfLastItem)
 
   return (
     <div className="crypto-list">
@@ -72,7 +79,7 @@ export default function Cryptocurrencies({ topTen }) {
                   ? <tr>
                       <td colSpan="7" className="not-found text-center">No cryptocurrency found</td>
                     </tr>
-                : cryptos?.map((currency, index) => { 
+                : currentItems?.map((currency, index) => { 
                     return (
                       <tr key={currency?.id} className="">
                           <td>{index + 1}</td>
@@ -108,6 +115,14 @@ export default function Cryptocurrencies({ topTen }) {
           </div>
         </div>
       </div>
+      <Pagination
+        data={cryptos}
+        itemsPerPage={itemsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 }
+
+export default Cryptocurrencies

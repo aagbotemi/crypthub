@@ -1,0 +1,50 @@
+.pageNumbers {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+
+    li {
+        padding: 8px 10px;
+        margin: 0px 5px 0px 0px;
+        border: 1px solid #0079D3;
+        cursor: pointer;
+        font-size: 1rem;
+        // background: #0079D3;
+        // color: #fff;
+        border-radius: 7px;
+
+        button {
+            background-color: transparent;
+            border: none;
+            color: #222;
+            cursor: pointer;
+            font-size: 1rem;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            background-color: #0079D3;
+        }
+        
+        &:hover button {
+            color: #fff;
+        }
+    }
+
+    li.active {
+        background-color: #0079D3;
+        color: #fff;
+    }
+}
+
+// .loadMore {
+//     padding: 1rem;
+//     background: rgb(18, 235, 235);
+//     color: aqua;
+//     font-size: 1.2rem;
+//     border: 1px solid pink;
+//     cursor: pointer;
+// }

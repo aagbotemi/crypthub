@@ -1,23 +1,44 @@
 import React, { useEffect, useState } from 'react'
 
+
+const ProgressBar = props => (
+  <div style={{ display: 'block', width: `${props.percentage}%`, height: 4, backgroundColor: 'blue' }} />
+);
+
 const Loading = () => {
-    const [percentage, setPercentage] = useState(0)
+    const [state, setState] = useState({
+        percentage: 0,
+    })
+
     useEffect(() => {
-        const interval = setInterval(() => {
-            let nextPercent = percentage + 1;
+        const perc = setInterval(() => {
+            let nextPercent = state.percentage+1;
             if (nextPercent >= 100) {
                 nextPercent = 0;
             }
-            setPercentage(nextPercent);
-        }, 100)
+            setState({ percentage: nextPercent });
+        }, 100);
+        return () => clearInterval(perc)
+    }, [state.percentage])
 
-        return () => clearInterval(interval)
-    }, [])
     return (
+        // <LinearProgress />
         <div>
-            <div style={{ display: 'block', width: `${percentage}%`, height: 4, backgroundColor: '#0079D3' }} />
+            <ProgressBar percentage={state.percentage} />
         </div>
     )
 }
 
 export default Loading
+
+// import * as React from 'react';
+// import Box from '@mui/material/Box';
+// import LinearProgress from '@mui/material/LinearProgress';
+
+// export default function LinearIndeterminate() {
+//   return (
+//     <Box sx={{ width: '100%' }}>
+//       <LinearProgress />
+//     </Box>
+//   );
+// }
