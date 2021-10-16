@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import millify from 'millify';
-import HTMLReactParser from 'html-react-parser';
-
 import { useGetMarketsQuery } from '../services/cryptoApi';
 import { numFormatter } from '../utils/numFormatter';
 import { formatNumWithComma } from '../utils/formatNumWithComma';
-import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import{ BiSearch } from 'react-icons/bi'
 import Loading from '../components/Loading'
 
@@ -51,7 +47,7 @@ const Markets = () => {
                       Base Price
                     </th>
                     <th scope="col">
-                       24h Trade Volume
+                      24h Trade Volume
                     </th>
                     <th scope="col">
                       Change
