@@ -8,10 +8,12 @@ import CryptoDetail from './views/CryptoDetail';
 import Exchanges from './views/Exchanges';
 import Markets from './views/Markets';
 import NotFound from './views/404';
+import SEO from './components/SEO'
 
 function App() {
   return (
     <Router>
+      <SEO title="Home" />
       <div className="main-container">
         <Navbar />
         <div className="main">

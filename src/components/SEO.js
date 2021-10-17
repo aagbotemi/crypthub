@@ -1,7 +1,7 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
-import Logo from '../assets/images/logo.svg';
-import Favicon from '../assets/images/logo.svg';
+import Logo from '../assets/images/logo.png';
+import Favicon from '../assets/images/logo.png';
 
 const SEO = ({title}) => {
     return (
