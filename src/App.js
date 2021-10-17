@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import CryptoDetail from './views/CryptoDetail';
 import Exchanges from './views/Exchanges';
 import Markets from './views/Markets';
+import NotFound from './views/404';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/currencies/:coinId" component={CryptoDetail} />
             <Route path="/exchanges" component={Exchanges} />
             <Route path="/markets" component={Markets} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </div>
         <Footer />
