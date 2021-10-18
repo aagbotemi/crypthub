@@ -88,7 +88,7 @@ const Markets = () => {
                             {numFormatter(market?.volume) }
                           </td>
                           <td>
-                            {millify(market?.marketShare)}
+                            {millify(market?.marketShare)}%
                           </td>
                       </tr>
                     )

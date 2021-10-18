@@ -79,7 +79,7 @@ const Exchanges = () => {
                             {millify(exchange?.numberOfMarkets) }
                           </td>
                           <td>
-                            {millify(exchange?.marketShare)}
+                            {millify(exchange?.marketShare)}%
                           </td>
                       </tr>
                     )
