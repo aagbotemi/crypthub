@@ -8,6 +8,7 @@ import { formatNumWithComma } from '../utils/formatNumWithComma';
 import { numFormatter } from '../utils/numFormatter';
 import Loading from '../components/Loading'
 import Pagination from '../components/Pagination';
+import { Helmet } from 'react-helmet';
 
 const Cryptocurrencies = ({ topTen }) => {
   const count = topTen ? 10 : 100
@@ -30,6 +31,11 @@ const Cryptocurrencies = ({ topTen }) => {
 
   return (
     <div className="crypto-list">
+      <Helmet>
+        <title>Cryptocurrencies Prices, Market Capitalization, Volume, Circulating Supply, 24h Change | Crypthub</title>
+        <meta name="description" content="Cryptocurrencies Listing page of Crypthub. The listing page of top 100 cryptocurrencies, market capitalization, volume, circulating supply" />
+        <meta name="keywords" content="Cryptocurrencies, top 100 cryptocurrencies, market capitalization, crypto market cap, crypto volume, crypto circulating supply" />
+      </Helmet>
       {!topTen && <>
         <h1>Cryptocurrencies</h1>
         <div className="search-crypto">
