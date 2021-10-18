@@ -5,6 +5,7 @@ import { numFormatter } from '../utils/numFormatter';
 import { formatNumWithComma } from '../utils/formatNumWithComma';
 import{ BiSearch } from 'react-icons/bi'
 import Loading from '../components/Loading'
+import { Helmet } from 'react-helmet';
 
 const Markets = () => {
   const { data, isFetching } = useGetMarketsQuery();
@@ -22,6 +23,11 @@ const Markets = () => {
 
   return (
     <div className="exchange-market-crypto-list">
+      <Helmet>
+        <title>Top crypto exchange markets | Crypthub</title>
+        <meta name="description" content="Top crypto exchange markets of Crypthub. Discover all cryptocurrencies markets and top trading pairs from every exchange, ranked by trading volume." />
+        <meta name="keywords" content="crypto exchange markets, crypto, base price, crypto percent change, crypto exchanges 24 hour trade volume" />
+      </Helmet>
       <h3 className="text-center">Top crypto exchange markets</h3>
       <p className="text-center">Discover all {data?.data?.markets?.length} cryptocurrency markets and top trading pairs from every exchange, ranked by trading volume.</p>
       
