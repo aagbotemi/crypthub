@@ -39,8 +39,8 @@ const CryptoDetail = () => {
         <div className="coin-detail-container">
             <Helmet>
                 <title>{`${cryptoDetails.name} price today, ${cryptoDetails.symbol} to USD live, market cap, chart, details | Crypthub`}</title>
-                <meta name="description" content="Cryptocurrencies Listing page of Crypthub. The listing page of top 100 cryptocurrencies, market capitalization, volume, circulating supply" />
-                <meta name="keywords" content="Cryptocurrencies, top 100 cryptocurrencies, market capitalization, crypto market cap, crypto volume, crypto circulating supply" />
+                <meta name="description" content="Cryptocurrencies details page of Crypthub. The details page of cryptocurrencies, market capitalization, volume, circulating supply" />
+                <meta name="keywords" content={`${cryptoDetails.name} chart, top 100 cryptocurrencies, market capitalization, crypto market cap, crypto volume, crypto circulating supply, ${cryptoDetails.name} all time high, what is ${cryptoDetails.name} coin, what is the goal of ${cryptoDetails.name} coin, who started ${cryptoDetails.name} coin.`} />
             </Helmet>
             <div className="coin-header-container text-center">
                 <h1 className="coin-name">

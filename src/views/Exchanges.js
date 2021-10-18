@@ -3,6 +3,7 @@ import millify from 'millify';
 import { useGetExchangesQuery } from '../services/cryptoApi';
 import{ BiSearch } from 'react-icons/bi'
 import Loading from '../components/Loading'
+import { Helmet } from 'react-helmet';
 
 const Exchanges = () => {
   const { data, isFetching } = useGetExchangesQuery();
@@ -16,6 +17,11 @@ const Exchanges = () => {
 
   return (
     <div className="exchange-market-crypto-list">
+      <Helmet>
+        <title>Top crypto exchanges | Crypthub</title>
+        <meta name="description" content="Top crypto exchanges of Crypthub. The listing page of top crypto exchanges, market price, 24 hour trade volume, percent change" />
+        <meta name="keywords" content="crypto exchanges, crypto, market price, crypto percent change, crypto exchanges 24 hour trade volume" />
+      </Helmet>
       <h3 className="text-center">Top crypto exchanges</h3>
       <p className="text-center">Compare all {data?.data?.exchanges?.length} top crypto exchanges. The list is ranked by trading volume.</p>
 
