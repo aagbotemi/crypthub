@@ -13,7 +13,7 @@ import SEO from './components/SEO'
 function App() {
   return (
     <Router>
-      <SEO title="Home" />
+      <SEO title="Cryptocurrencies Prices, Global Statistics" />
       <div className="main-container">
         <Navbar />
         <div className="main">

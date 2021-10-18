@@ -11,6 +11,8 @@ const SEO = ({title}) => {
             <meta name="keywords" content="crypto, cryptocurrency price, bitcoin, btc, eth, ethereum, cryptocurrency exchanges, crypto total volume, crypto total market cap &amp; crypto markets" />
             <meta name="image" content={Logo} />
             <link rel="shortcut icon" href={Favicon}/>
+            <link rel="canonical" href="https://crypthub.netlify.app/" />
+            <link rel="shortlink" href="https://crypthub.netlify.app/" />
         </Helmet>
     )
 }
