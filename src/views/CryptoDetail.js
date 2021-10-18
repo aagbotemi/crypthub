@@ -7,6 +7,7 @@ import LineChart from '../components/LineChart';
 import { numFormatter } from '../utils/numFormatter';
 import CircularLoading from '../components/CircularLoading'
 import { AiOutlineDollar, AiOutlineFund, AiOutlineMoneyCollect, AiOutlineNumber, AiOutlineTrophy, AiOutlineThunderbolt, AiOutlineStop, AiOutlineCheck, AiOutlineExclamation, AiOutlineExclamationCircle } from "react-icons/ai"
+import { Helmet } from 'react-helmet';
 
 const CryptoDetail = () => {
     const { coinId } = useParams();
@@ -36,6 +37,11 @@ const CryptoDetail = () => {
     if (isFetching) return <CircularLoading />;
     return (
         <div className="coin-detail-container">
+            <Helmet>
+                <title>{`${cryptoDetails.name} price today, ${cryptoDetails.symbol} to USD live, market cap, chart, details | Crypthub`}</title>
+                <meta name="description" content="Cryptocurrencies Listing page of Crypthub. The listing page of top 100 cryptocurrencies, market capitalization, volume, circulating supply" />
+                <meta name="keywords" content="Cryptocurrencies, top 100 cryptocurrencies, market capitalization, crypto market cap, crypto volume, crypto circulating supply" />
+            </Helmet>
             <div className="coin-header-container text-center">
                 <h1 className="coin-name">
                     {cryptoDetails.name} ({cryptoDetails.slug}) Price
