@@ -5,6 +5,7 @@ import Cryptocurrencies from './Cryptocurrencies'
 import { Link } from 'react-router-dom'
 import HeroImg from './../assets/images/hero.svg'
 import CircularLoading from '../components/CircularLoading'
+import Exchanges from './Exchanges'
 
 const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
@@ -59,6 +60,12 @@ const Home = () => {
                 <div className="show-more"><Link to="/cryptocurrencies">Show More</Link></div>
             </div>
             <Cryptocurrencies topTen />
+
+            <div className="home-heading-container">
+                <div className="home-title">Top 3 Exchanges in the world</div>
+                <div className="show-more"><Link to="/exchanges">Show More</Link></div>
+            </div>
+            <Exchanges topThree />
         </section>
     )
 }
