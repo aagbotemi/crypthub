@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import HeroImg from './../assets/images/hero.svg'
 import CircularLoading from '../components/CircularLoading'
 import Exchanges from './Exchanges'
+import Markets from './Markets'
 
 const Home = () => {
     const { data, isFetching } = useGetCryptosQuery(10)
@@ -66,6 +67,12 @@ const Home = () => {
                 <div className="show-more"><Link to="/exchanges">Show More</Link></div>
             </div>
             <Exchanges topThree />
+
+            <div className="home-heading-container">
+                <div className="home-title">Top 3 Markets in the world</div>
+                <div className="show-more"><Link to="/exchanges">Show More</Link></div>
+            </div>
+            <Markets topThree />
         </section>
     )
 }

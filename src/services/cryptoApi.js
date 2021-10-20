@@ -30,7 +30,7 @@ export const cryptoApi = createApi({
             query: (count) => createRequest(`/exchanges?limit=${count}`)
         }),
         getMarkets: builder.query({
-            query: () => createRequest(`/markets`)
+            query: (count) => createRequest(`/markets?limit=${count}`)
         })
     })
 })
