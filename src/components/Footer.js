@@ -12,7 +12,7 @@ const Footer = () => {
                         <img src={Logo} width="18px" alt="crypthub logo" />
                         <span className="">Crypthub</span>
                     </div>
-                    <p>Your number one platform to get real-time update about cryptocurrencies</p>
+                    <p>Your number one platform to get real-time updates about cryptocurrencies</p>
                 </div>
                 <div className="social-icons">
                     <h2>
